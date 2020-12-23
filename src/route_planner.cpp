@@ -58,7 +58,9 @@ bool Compare(const RouteModel::Node *node_a, const RouteModel::Node *node_b)
 }
 
 RouteModel::Node *RoutePlanner::NextNode() {
-    std::sort(open_list.begin(), open_list.end(), Compare);
+    std::sort(this->open_list.begin(), this->open_list.end(), Compare);
+    RouteModel::Node *current_node = this->open_list.back();
+    this->open_list.pop_back();
 }
 
 
